@@ -1,0 +1,45 @@
+
+let task1 = () => {
+    return new Promise((resolve, reject) => {
+        resolve("task 1 completed");
+    });
+};
+
+let task2 = () => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve("task 2 completed");
+        }, 1000);
+    });
+};
+
+let task3 = () => {
+    return new Promise((resolve, reject) => {
+        resolve("task 3 completed");
+    });
+};
+
+let task4 = () => {
+    return new Promise((resolve, reject) => {
+        resolve("task 4 completed");
+    });
+};
+
+task1()
+    .then((taskone) => {
+        console.log(taskone);
+        return task2();
+    })
+    .then((tasktwo) => {
+        console.log(tasktwo);
+        return task3();
+    })
+    .then((taskthree) => {
+        console.log(taskthree);
+        return task4();
+    })
+    .then((taskfour) => {
+        console.log(taskfour);
+    })
+    .catch(err => console.log(err));
+
